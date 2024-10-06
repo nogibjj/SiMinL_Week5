@@ -34,7 +34,6 @@ def handle_arguments(args):
     args = parser.parse_args(args[:1])
     print(args.action)
     if args.action == "update_record":
-        parser.add_argument("record_id", type=int)
         parser.add_argument("Major")
         parser.add_argument("Major_category")
         parser.add_argument("Grad_total", type=int)
