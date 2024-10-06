@@ -11,12 +11,18 @@ def load(dataset="data/gradstudents.csv"):
     """Transforms and Loads data into the local SQLite3 database"""
     payload = csv.reader(open(dataset, newline=""), delimiter=",")
     # skips the header of csv
-    next(payload)
+    header = next(payload)
+    major_idx = header.index("Major")
+    major_category_idx = header.index("Major_category")
+    grad_total_idx = header.index("Grad_total")
+    grad_employed_idx = header.index("Grad_employed")
+
     conn = sqlite3.connect("gradstudentsDB.db")
     c = conn.cursor()
     c.execute(
         "SELECT Major, Major_category, Grad_total, Grad_employed FROM gradstudentsDB"
     )
+    data = c.fetchall()
     c.execute("DROP TABLE IF EXISTS gradstudentsDB")
     c.execute(
         """
@@ -29,6 +35,15 @@ def load(dataset="data/gradstudents.csv"):
         )
     """
     )
+    relevant_data = [
+        (
+            row[major_idx],
+            row[major_category_idx],
+            row[grad_total_idx],
+            row[grad_employed_idx],
+        )
+        for row in payload
+    ]
     # insert
     c.executemany(
         """
@@ -38,7 +53,7 @@ def load(dataset="data/gradstudents.csv"):
             Grad_total, Grad_employed
             ) 
             VALUES (?, ?, ?, ?)""",
-        payload,
+        relevant_data,
     )
     conn.commit()
     conn.close()
