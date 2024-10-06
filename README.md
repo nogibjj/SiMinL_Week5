@@ -1,15 +1,24 @@
-[![CI](https://github.com/nogibjj/SiMinL_MiniProj1/actions/workflows/hello.yml/badge.svg)](https://github.com/nogibjj/SiMinL_MiniProj1/actions/workflows/hello.yml)
 
-# SiMinL_MiniProj1
+# SiMinL_MiniProj5
 
-This serves as a Python template that we can use as a starting point for future Python projects. It contains:
+# Requirements
+Connect to a SQL database
+Perform CRUD operations (Create, Read, Update, Delete)
+Write at least two different SQL queries
+Grading Criteria 
 
-A Makefile, which runs required installations, and then formats, lints, and tests the code.
+# Purpose 
+The purpose of this project is to create CRUD actions using SQLite and Python, and to build an ETL-query pipeline. Here, xxx is used as a sample dataset. It is converted to a .db file, and CRUD actions are conducted.
 
-A requirements.txt file, which lists out some basic DevOps and Data Science packages along with specific versions for installation.
+# Preparation
+1. Open codespaces
+2. Wait for container to be built and virtual environment to be activated with requirements.txt installed
+3.Extract: run make extract
+4. Transform and load: run make transform_load
+5. Query: run make query or alternatively write your own query using python main.py general_query <insert query>
 
-A devcontainer folder.
-
-Github Actions workflows directory and yml file for CI/CD integration.
-
-A basic python script for adding two numbers as well as a testing file, to demonstrate the functionality of the template.
+# Sample CRUD Operations
+Create: python main.py create_record 'John Doe' 40 '2023-09-05' 'Jane Doe' '30-40' 1 '0-0'
+Read: python main.py read_data()
+Update: python main.py update_record 1 'John Doe' 40 '2023-09-05' 'Jane Doe' '30-40' 1 '0-0'
+Delete: python main.py delete_record 1
