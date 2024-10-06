@@ -56,6 +56,7 @@ def test_update_record():
             "python",
             "main.py",
             "update_record",
+            "1",
             "Computer Science",
             "STEM",
             "1500",

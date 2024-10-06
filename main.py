@@ -34,6 +34,7 @@ def handle_arguments(args):
     args = parser.parse_args(args[:1])
     print(args.action)
     if args.action == "update_record":
+        parser.add_argument("id", type=int)
         parser.add_argument("Major")
         parser.add_argument("Major_category")
         parser.add_argument("Grad_total", type=int)
@@ -49,7 +50,7 @@ def handle_arguments(args):
         parser.add_argument("query")
 
     if args.action == "delete_record":
-        parser.add_argument("record_id", type=int)
+        parser.add_argument("id", type=int)
 
     # parse again with ever
     return parser.parse_args(sys.argv[1:])
@@ -67,14 +68,14 @@ def main():
         load()
     elif args.action == "update_record":
         update_record(
-            args.record_id,
+            args.id,
             args.Major,
             args.Major_category,
             args.Grad_total,
             args.Grad_employed,
         )
     elif args.action == "delete_record":
-        delete_record(args.record_id)
+        delete_record(args.id)
     elif args.action == "create_record":
         create_record(
             args.Major, args.Major_category, args.Grad_total, args.Grad_employed
