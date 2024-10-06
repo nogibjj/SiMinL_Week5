@@ -9,7 +9,7 @@ import requests
 
 def extract(
     url="""
-https://github.com/fivethirtyeight/data/raw/refs/heads/master/college-majors/grad-students.csv    """,
+https://github.com/fivethirtyeight/data/raw/refs/heads/master/college-majors/grad-students.csv""",
     file_path="data/gradstudents.csv",
     directory="data",
 ):
