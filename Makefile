@@ -47,4 +47,4 @@ transform_load:
 
 ###change the below
 query:
-	python main.py general_query "SELECT * FROM ServeTimesDB WHERE server='Roger Federer';"
+	python main.py general_query "SELECT * FROM gradstudentsDB WHERE Major='CONSTRUCTION SERVICES';"

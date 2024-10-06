@@ -83,7 +83,7 @@ def update_record(record_id, Major, Major_category, Grad_total, Grad_employed):
 
     # Log the query
     log_query(
-        f"""UPDATE grad-studentsDB SET 
+        f"""UPDATE gradstudentsDB SET 
         major={Major}, 
         major_category=
         {Major_category},
@@ -94,21 +94,21 @@ def update_record(record_id, Major, Major_category, Grad_total, Grad_employed):
 
 def delete_record(record_id):
     """delete example query"""
-    conn = sqlite3.connect("grad-studentsDB.db")
+    conn = sqlite3.connect("gradstudentsDB.db")
     c = conn.cursor()
-    c.execute("DELETE FROM grad-studentsDB WHERE id=?", (record_id,))
+    c.execute("DELETE FROM gradstudentsDB WHERE id=?", (record_id,))
     conn.commit()
     conn.close()
 
     # Log the query
-    log_query(f"DELETE FROM grad-studentsDB WHERE id={record_id};")
+    log_query(f"DELETE FROM gradstudentsDB WHERE id={record_id};")
 
 
 def read_data():
     """read data. retrieves all records"""
-    conn = sqlite3.connect("grad-studentsDB.db")
+    conn = sqlite3.connect("gradstudentsDB.db")
     c = conn.cursor()
-    c.execute("SELECT * FROM grad-studentsDB")
+    c.execute("SELECT * FROM gradstudentsDB")
     data = c.fetchall()
-    log_query("SELECT * FROM grad-studentsDB;")
+    log_query("SELECT * FROM gradstudentsDB;")
     return data
