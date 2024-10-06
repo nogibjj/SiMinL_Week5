@@ -73,7 +73,7 @@ def update_record(id, Major, Major_category, Grad_total, Grad_employed):
         UPDATE gradstudentsDB 
         SET Major=?, 
         Major_category=?, 
-        Grad_total=?, Grad_employed=?, 
+        Grad_total=?, Grad_employed=? 
         WHERE id=?
         """,
         (Major, Major_category, Grad_total, Grad_employed, id),
