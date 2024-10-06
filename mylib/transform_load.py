@@ -22,7 +22,6 @@ def load(dataset="data/gradstudents.csv"):
     c.execute(
         "SELECT Major, Major_category, Grad_total, Grad_employed FROM gradstudentsDB"
     )
-    data = c.fetchall()
     c.execute("DROP TABLE IF EXISTS gradstudentsDB")
     c.execute(
         """
