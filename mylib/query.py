@@ -70,7 +70,7 @@ def update_record(record_id, Major, Major_category, Grad_total, Grad_employed):
     c = conn.cursor()
     c.execute(
         """
-        UPDATE grad-studentsDB 
+        UPDATE gradstudentsDB 
         SET Major=?, 
         Major_category=?, 
         Grad_total=?, Grad_employed=?, 
