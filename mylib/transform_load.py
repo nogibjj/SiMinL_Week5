@@ -13,10 +13,10 @@ def load(dataset="data/gradstudents.csv"):
     # skips the header of csv
     next(payload)
     conn = sqlite3.connect("gradstudentsDB.db")
+    c = conn.cursor()
     c.execute(
         "SELECT Major, Major_category, Grad_total, Grad_employed FROM gradstudentsDB"
     )
-    c = conn.cursor()
     c.execute("DROP TABLE IF EXISTS gradstudentsDB")
     c.execute(
         """
